@@ -273,7 +273,6 @@ header h1 {
 }
 
 .program-card.new-program {
-    background: rgba(74, 222, 128, 0.04);
     border-left: 2px solid var(--success);
 }
 
@@ -301,6 +300,8 @@ header h1 {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.25px;
+    flex-shrink: 0;
+    width: fit-content;
 }
 
 .program-name {
