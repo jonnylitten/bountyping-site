@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BountyPing - All Bug Bounty Programs in One Place</title>
+    <meta name="description" content="Aggregate bug bounty programs from HackerOne, Bugcrowd, Immunefi, and more. Filter by platform, bounty amount, and get Discord notifications for new programs.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🎯 BountyPing</h1>
+            <p class="tagline">All bug bounty programs in one place</p>
+            <p class="subtitle">HackerOne • Bugcrowd • Immunefi • Code4rena • Huntr • and more</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Stats -->
+        <div class="stats" id="stats">
+            <div class="stat">
+                <span class="stat-value" id="stat-total">-</span>
+                <span class="stat-label">Total Programs</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value" id="stat-new">-</span>
+                <span class="stat-label">New This Week</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value" id="stat-paid">-</span>
+                <span class="stat-label">Paid Programs</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value" id="stat-platforms">-</span>
+                <span class="stat-label">Platforms</span>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters-card">
+            <div class="filters">
+                <input
+                    type="text"
+                    id="search"
+                    placeholder="Search programs..."
+                    class="search-input"
+                >
+
+                <select id="platform" class="filter-select">
+                    <option value="">All Platforms</option>
+                </select>
+
+                <select id="sort" class="filter-select">
+                    <option value="newest">Newest First</option>
+                    <option value="bounty">Highest Bounty</option>
+                    <option value="name">Alphabetical</option>
+                </select>
+
+                <label class="checkbox-label">
+                    <input type="checkbox" id="bounties-only">
+                    <span>Paid Programs Only</span>
+                </label>
+
+                <label class="checkbox-label">
+                    <input type="checkbox" id="new-only">
+                    <span>New This Week</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Results count -->
+        <div class="results-info">
+            <span id="results-count">Loading programs...</span>
+        </div>
+
+        <!-- Programs list -->
+        <div id="programs" class="programs-list">
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading bug bounty programs...</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BountyPing</h3>
+                    <p>Aggregating bug bounty programs from across the web into one searchable interface.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Features</h4>
+                    <ul>
+                        <li>Multi-platform aggregation</li>
+                        <li>Real-time filtering</li>
+                        <li>Discord notifications</li>
+                        <li>Always up-to-date</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Data Sources</h4>
+                    <ul>
+                        <li>HackerOne</li>
+                        <li>Bugcrowd</li>
+                        <li>Immunefi</li>
+                        <li>ProjectDiscovery</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Part of the <strong>*Ping</strong> family: <a href="https://govping.co" target="_blank">GovPing</a> • <a href="https://regping.co" target="_blank">RegPing</a> • <a href="https://grantping.co" target="_blank">GrantPing</a></p>
+                <p class="disclaimer">Data sourced from public directories. Always verify on official platforms before submitting.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
