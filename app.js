@@ -190,10 +190,6 @@ function sortPrograms() {
                 valA = a.bounty_max || a.bounty_min || 0;
                 valB = b.bounty_max || b.bounty_min || 0;
                 break;
-            case 'scope':
-                valA = a.assets ? a.assets.length : 0;
-                valB = b.assets ? b.assets.length : 0;
-                break;
             default:
                 return 0;
         }
