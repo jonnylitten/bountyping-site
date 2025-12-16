@@ -119,37 +119,7 @@ function displayPrograms(programs) {
 
                 <span class="platform-badge">${escapeHtml(program.platform)}</span>
 
-                <div class="program-details">
-                    <div class="detail">
-                        <span class="detail-label">Bounty:</span>
-                        <span class="detail-value ${program.vdp_only ? 'vdp' : 'bounty'}">${bountyText}</span>
-                    </div>
-
-                    ${program.asset_types && program.asset_types.length > 0 ? `
-                        <div class="detail">
-                            <span class="detail-label">Asset Types:</span>
-                            <span class="detail-value">${program.asset_types.map(escapeHtml).join(', ')}</span>
-                        </div>
-                    ` : ''}
-
-                    ${program.assets && program.assets.length > 0 ? `
-                        <div class="detail">
-                            <span class="detail-label">Scope:</span>
-                            <span class="detail-value">
-                                <span class="scope-preview">
-                                    ${program.assets.slice(0, 3).map(escapeHtml).join(', ')}
-                                    ${program.assets.length > 3 ? ` <strong>+${program.assets.length - 3} more</strong>` : ''}
-                                </span>
-                            </span>
-                        </div>
-                    ` : ''}
-                </div>
-
-                <div class="program-footer">
-                    <a href="${program.url}" target="_blank" rel="noopener noreferrer" class="view-link">
-                        View Program
-                    </a>
-                </div>
+                <span class="bounty-value ${program.vdp_only ? 'vdp' : 'bounty'}">${bountyText}</span>
             </div>
         `;
     }).join('');
