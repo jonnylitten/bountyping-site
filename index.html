@@ -74,11 +74,34 @@
             <span id="results-count">Loading programs...</span>
         </div>
 
-        <!-- Programs list -->
-        <div id="programs" class="programs-list">
-            <div class="loading-state">
-                <div class="spinner"></div>
-                <p>Loading bug bounty programs...</p>
+        <!-- Programs table with sortable headers -->
+        <div class="programs-table">
+            <div class="table-header">
+                <div class="th" data-sort="name">
+                    <span>Program</span>
+                    <span class="sort-indicator"></span>
+                </div>
+                <div class="th" data-sort="platform">
+                    <span>Platform</span>
+                    <span class="sort-indicator"></span>
+                </div>
+                <div class="th" data-sort="bounty">
+                    <span>Bounty</span>
+                    <span class="sort-indicator"></span>
+                </div>
+                <div class="th" data-sort="scope">
+                    <span>Scope</span>
+                    <span class="sort-indicator"></span>
+                </div>
+                <div class="th">
+                    <span>Action</span>
+                </div>
+            </div>
+            <div id="programs" class="programs-list">
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <p>Loading bug bounty programs...</p>
+                </div>
             </div>
         </div>
     </main>

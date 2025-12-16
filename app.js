@@ -6,6 +6,7 @@ const API_URL = 'https://web-production-372c2.up.railway.app';
 // State
 let allPrograms = [];
 let platforms = [];
+let currentSort = { column: null, direction: 'asc' };
 
 // DOM elements
 const programsContainer = document.getElementById('programs');
@@ -174,6 +175,67 @@ function debounce(func, wait) {
     };
 }
 
+// Column sorting
+function setupColumnSorting() {
+    const headers = document.querySelectorAll('.th[data-sort]');
+
+    headers.forEach(header => {
+        header.addEventListener('click', () => {
+            const column = header.dataset.sort;
+
+            // Toggle direction if clicking same column
+            if (currentSort.column === column) {
+                currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+            } else {
+                currentSort.column = column;
+                currentSort.direction = 'desc'; // Default to descending for new column
+            }
+
+            // Update UI
+            headers.forEach(h => h.classList.remove('sorted', 'asc', 'desc'));
+            header.classList.add('sorted', currentSort.direction);
+
+            // Sort and display
+            sortPrograms();
+        });
+    });
+}
+
+function sortPrograms() {
+    if (!currentSort.column || allPrograms.length === 0) return;
+
+    const sorted = [...allPrograms].sort((a, b) => {
+        let valA, valB;
+
+        switch (currentSort.column) {
+            case 'name':
+                valA = a.name.toLowerCase();
+                valB = b.name.toLowerCase();
+                break;
+            case 'platform':
+                valA = a.platform.toLowerCase();
+                valB = b.platform.toLowerCase();
+                break;
+            case 'bounty':
+                valA = a.bounty_max || a.bounty_min || 0;
+                valB = b.bounty_max || b.bounty_min || 0;
+                break;
+            case 'scope':
+                valA = a.assets ? a.assets.length : 0;
+                valB = b.assets ? b.assets.length : 0;
+                break;
+            default:
+                return 0;
+        }
+
+        if (valA < valB) return currentSort.direction === 'asc' ? -1 : 1;
+        if (valA > valB) return currentSort.direction === 'asc' ? 1 : -1;
+        return 0;
+    });
+
+    displayPrograms(sorted);
+}
+
 // Event listeners
 searchInput.addEventListener('input', debounce(loadPrograms, 300));
 platformSelect.addEventListener('change', loadPrograms);
@@ -186,4 +248,5 @@ document.addEventListener('DOMContentLoaded', () => {
     loadStats();
     loadPlatforms();
     loadPrograms();
+    setupColumnSorting();
 });
