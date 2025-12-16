@@ -1,7 +1,7 @@
 // BountyPing Frontend JavaScript
 
-// API Configuration - UPDATE THIS after Railway deployment
-const API_URL = 'https://bountyping-production.up.railway.app'; // Replace with your Railway URL
+// API Configuration
+const API_URL = 'https://web-production-372c2.up.railway.app';
 
 // State
 let allPrograms = [];
