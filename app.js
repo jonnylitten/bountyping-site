@@ -110,14 +110,14 @@ function displayPrograms(programs) {
 
         return `
             <div class="program-card ${isNew ? 'new-program' : ''}">
-                ${isNew ? '<span class="new-badge">NEW</span>' : ''}
-
                 <div class="program-header">
+                    ${isNew ? '<span class="new-badge">NEW</span>' : ''}
                     <h2 class="program-name">
                         <a href="${program.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(program.name)}</a>
                     </h2>
-                    <span class="platform-badge">${escapeHtml(program.platform)}</span>
                 </div>
+
+                <span class="platform-badge">${escapeHtml(program.platform)}</span>
 
                 <div class="program-details">
                     <div class="detail">
