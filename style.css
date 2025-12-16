@@ -190,8 +190,8 @@ header h1 {
 
 .table-header {
     display: grid;
-    grid-template-columns: 1.5fr 0.8fr 1fr 1.2fr 110px;
-    gap: 1rem;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 1.5rem;
     padding: 0.75rem 1.5rem;
     background: var(--black-lighter);
     border-bottom: 2px solid var(--gold);
@@ -256,8 +256,8 @@ header h1 {
 
 .program-card {
     display: grid;
-    grid-template-columns: 1.5fr 0.8fr 1fr 1.2fr 110px;
-    gap: 1rem;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 1.5rem;
     padding: 0.875rem 1.5rem;
     border-bottom: 1px solid var(--gray);
     transition: background-color 0.15s;
@@ -331,6 +331,22 @@ header h1 {
     font-weight: 600;
     text-transform: capitalize;
     border: 1px solid var(--gray);
+    width: fit-content;
+}
+
+.bounty-value {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.bounty-value.bounty {
+    color: var(--success);
+    font-weight: 700;
+}
+
+.bounty-value.vdp {
+    color: var(--text-muted);
 }
 
 .program-details {
